@@ -36,6 +36,19 @@ Having selectors is nice, but this approach can be taken up a notch with [Resele
 
 ![Redux-reselect-from-cache](https://productioncoder.com/wp-content/uploads/2018/10/redux-reselect-from-cache.jpg)
 
+Given that we have two properties called *firstName* and *lastName* in our global state. Where in our component we want to display the users full name. So instead of pulling in *firstName* and *lastName* into pur component using a connect helper, we can just create a selector. The selector will be responsible in joining both the *firstName* and *lastName* with a space inbetween and will retturn a full name.
+
+With the help of *Reselect* we can even cache the results, such that when the state is updated, our components perform a re-render. Suppose a different property in our state is updated, eg:- userHandle, but not firstName and lastName. Therefore, the value of the *fullName* will remain as same as before the state update.  Leaving the only thing that changes being the *userHandle*.
+
+When the components re-render, they will call the selector and be expected to return *fullName*. Since nothing has changed the value will be fished from the cache and returned, reducing any addition work. fullName is supposed to be recalculated only if firstName and lastName is changed, and here Reselct will take care of this for us.
+
+__Reselect only recalculates the values of the selctor if the part of the state that the selector is working with is updated.__
+
+![redux_reselect_cache_recalculate](https://productioncoder.com/wp-content/uploads/2018/10/redux-reselect-cache-recalculate.jpg)
+
+As you can see this is a great performance boost.
+
+Reselect is one of the ways in which you can give a performance boost to your app, and infact make the code base much more extendable and maintainable.
 
 
 
