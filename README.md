@@ -30,6 +30,12 @@ By just leting our selctor access the state directly, we are reducing the coupli
 
 *You should always strive to use selectors in your Redux application, because its makes it easier to maintain the code and extendable. You also dont spend alot of time refactoring your mapToStateProps functions*
 
+# Adding more spice (into to Redux-reselect)
+
+Having selectors is nice, but this approach can be taken up a notch with [Reselect](https://github.com/reduxjs/reselect), its a package that allows you to do performance optimization with Redux state. [Reselect](https://github.com/reduxjs/reselect) comes in handy when we compute derived state, which is pretty much done all the time.
+
+![Redux-reselect-from-cache](https://productioncoder.com/wp-content/uploads/2018/10/redux-reselect-from-cache.jpg)
+
 
 
 
